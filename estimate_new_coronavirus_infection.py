@@ -127,14 +127,13 @@ if __name__ == '__main__':
     timestamp, accumulation, daily = read_csv(filename)
 
     #fig = plt.figure()
-    fig = plt.figure(figsize=(20,10),dpi=200)
-    fig.suptitle('Infections of a new coronavirus', fontsize=30)
-
+    fig = plt.figure(figsize=(20,10),dpi=100)
+    fig.suptitle('Infections of a new coronavirus', fontsize=15)
     ############################################################
     # Estimation for infected People in China and visualization
     ############################################################
     ax = fig.add_subplot(1, 1, 1)
-    China = EstimationInfectedPeople(ax, 'China', 58500000, timestamp, accumulation['China'], daily['China'])
+    China = EstimationInfectedPeople(ax, 'China', 1386000000, timestamp, accumulation['China'], daily['China'])
     estParams = China.getEstimatedParams()
     China.print_estimation(estParams)
     China.plot(estParams)
@@ -142,16 +141,30 @@ if __name__ == '__main__':
     plt.close()
 
     #fig = plt.figure()
-    fig = plt.figure(figsize=(20,10),dpi=200)
-    fig.suptitle('Infections of a new coronavirus', fontsize=30)
+    fig = plt.figure(figsize=(20,10),dpi=100)
+    fig.suptitle('Infections of a new coronavirus', fontsize=15)
     ############################################################
     # Estimation for infected People in Japan and visualization
     ############################################################
     ax = fig.add_subplot(1, 1, 1)
-    Japan = EstimationInfectedPeople(ax, 'Japan', 12000000, timestamp, accumulation['Japan'], daily['Japan'])
+    Japan = EstimationInfectedPeople(ax, 'Japan', 120000000, timestamp, accumulation['Japan'], daily['Japan'])
     estParams = Japan.getEstimatedParams()
     Japan.print_estimation(estParams)
     Japan.plot(estParams)
     Japan.save_plot()
+    plt.close()
+
+    #fig = plt.figure()
+    fig = plt.figure(figsize=(20,10),dpi=100)
+    fig.suptitle('Infections of a new coronavirus', fontsize=15)
+    ############################################################
+    # Estimation for infected People in Japan and visualization
+    ############################################################
+    ax = fig.add_subplot(1, 1, 1)
+    Korea = EstimationInfectedPeople(ax, 'Korea', 52000000, timestamp, accumulation['Korea'], daily['Korea'])
+    estParams = Korea.getEstimatedParams()
+    Korea.print_estimation(estParams)
+    Korea.plot(estParams)
+    Korea.save_plot()
     plt.close()
 
